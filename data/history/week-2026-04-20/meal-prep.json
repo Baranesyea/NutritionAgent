@@ -1,0 +1,115 @@
+{
+  "week_start": "2026-04-20",
+  "sessions": [
+    {
+      "session_number": 1,
+      "date": "2026-04-20",
+      "day_name": "ראשון",
+      "covers_days": ["2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23"],
+      "estimated_total_minutes": 60,
+      "calendar_event": {
+        "title": "Meal Prep — סשן 1",
+        "start": "2026-04-20T17:00:00",
+        "end": "2026-04-20T18:00:00"
+      },
+      "tasks": [
+        {
+          "order": 1,
+          "task": "להדליק תנור ל-180 מעלות",
+          "duration_minutes": 0,
+          "note": "מיד בהתחלה כדי שיתחמם"
+        },
+        {
+          "order": 2,
+          "task": "לשים אורז לבן להרתחה",
+          "quantity": "600g אורז יבש",
+          "duration_minutes": 20,
+          "note": "יספיק ל-4 ימים. 1 כוס אורז ל-1.5 כוס מים"
+        },
+        {
+          "order": 3,
+          "task": "לחתוך ולתבל חזה עוף ולשים בתבנית",
+          "quantity": "540g חזה עוף (3 מנות)",
+          "duration_minutes": 5,
+          "note": "שמן זית + מלח + פלפל. לאפות 25 דק' יחד עם הסלמון"
+        },
+        {
+          "order": 4,
+          "task": "לתבל סלמון ולשים בתבנית נפרדת",
+          "quantity": "400g סלמון (2 מנות)",
+          "duration_minutes": 3,
+          "note": "שמן זית + לימון"
+        },
+        {
+          "order": 5,
+          "task": "לשים בטטה ותפו\"א בתנור",
+          "quantity": "400g בטטה + 200g תפו\"א",
+          "duration_minutes": 3,
+          "note": "לחתוך לקוביות, 200 מעלות 30 דק'"
+        },
+        {
+          "order": 6,
+          "task": "לאפות עוף וסלמון בתנור",
+          "duration_minutes": 25,
+          "note": "בינתיים אפשר לנוח — הכל בתנור"
+        },
+        {
+          "order": 7,
+          "task": "לחלק לקופסאות ולסדר במקרר",
+          "duration_minutes": 10,
+          "note": "כל ארוחה בקופסה נפרדת עם תווית יום"
+        }
+      ]
+    },
+    {
+      "session_number": 2,
+      "date": "2026-04-23",
+      "day_name": "רביעי",
+      "covers_days": ["2026-04-24", "2026-04-25", "2026-04-26"],
+      "estimated_total_minutes": 55,
+      "calendar_event": {
+        "title": "Meal Prep — סשן 2",
+        "start": "2026-04-23T17:00:00",
+        "end": "2026-04-23T17:55:00"
+      },
+      "tasks": [
+        {
+          "order": 1,
+          "task": "לשים אורז להרתחה",
+          "quantity": "450g אורז יבש",
+          "duration_minutes": 20,
+          "note": "יספיק ל-3 ימים"
+        },
+        {
+          "order": 2,
+          "task": "לטגן בשר טחון עם בצל",
+          "quantity": "280g בשר טחון",
+          "duration_minutes": 15,
+          "note": "עם בצל קצוץ ומעט שמן זית. לחלק ל-2 מנות"
+        },
+        {
+          "order": 3,
+          "task": "לבשל פסטה",
+          "quantity": "400g פסטה יבשה",
+          "duration_minutes": 12,
+          "note": "ל-דנטה, לא רכה מדי"
+        },
+        {
+          "order": 4,
+          "task": "לבשל ירך עוף",
+          "quantity": "400g ירך עוף",
+          "duration_minutes": 20,
+          "note": "בתנור 180 מעלות 25 דק', או בסיר עם מים"
+        },
+        {
+          "order": 5,
+          "task": "לחלק לקופסאות ולסדר במקרר",
+          "duration_minutes": 8,
+          "note": "עוף + אורז ביחד. פסטה + בשר טחון ביחד"
+        }
+      ]
+    }
+  ],
+  "generated_at": "2026-04-17T07:00:00Z",
+  "generated_by": "weekly-planner-routine"
+}
