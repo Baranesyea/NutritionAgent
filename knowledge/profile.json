@@ -1,0 +1,58 @@
+{
+  "name": "ערן",
+  "age": 40,
+  "height_cm": 173,
+  "weight_kg": 88,
+  "goal": "fat_loss",
+  "activity_level": "light",
+  "bmr": 1756,
+  "tdee": 2415,
+  "daily_targets": {
+    "calories": 1930,
+    "protein_g": 193,
+    "carbs_g": 193,
+    "fat_g": 43
+  },
+  "weekly_targets": {
+    "calories": 13510,
+    "protein_g": 1351,
+    "carbs_g": 1351,
+    "fat_g": 301
+  },
+  "meal_structure": {
+    "meals_per_day": 3,
+    "snacks_per_day": 1,
+    "breakdown": {
+      "breakfast": { "calories": 450, "protein": 45, "carbs": 45, "fat": 10 },
+      "lunch": { "calories": 550, "protein": 55, "carbs": 55, "fat": 12 },
+      "snack": { "calories": 180, "protein": 13, "carbs": 23, "fat": 5 },
+      "dinner": { "calories": 750, "protein": 80, "carbs": 70, "fat": 16 }
+    }
+  },
+  "coffee": {
+    "cups_per_day": 2,
+    "milk": "חלב סויה וניל",
+    "milk_amount": "שליש כוס לכל כוס",
+    "estimated_daily_calories": 70
+  },
+  "preferences": {
+    "max_prep_time_minutes": 15,
+    "eats_alone": true,
+    "no_restrictions": true,
+    "dislikes": ["יוגורט יווני"],
+    "likes": ["יוגורט במתיקות מעודנת", "יוגורט חלבון"],
+    "has_at_home": ["שייק חלבון טבעוני"],
+    "precise_quantities_only": true
+  },
+  "correction_rules": {
+    "small_deviation_up_to_cal": 300,
+    "small_correction": "יום למחרת בלבד",
+    "medium_deviation_up_to_cal": 600,
+    "medium_correction": "2-3 ימים",
+    "large_deviation_above_cal": 600,
+    "large_correction": "שאר השבוע",
+    "minimum_daily_calories": 1600,
+    "minimum_daily_protein_g": 170
+  },
+  "updated_at": "2026-04-15"
+}
