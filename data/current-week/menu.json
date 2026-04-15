@@ -1,9 +1,9 @@
 {
-  "week_start": "2026-04-27",
-  "week_end": "2026-05-03",
+  "week_start": "2026-04-13",
+  "week_end": "2026-04-19",
   "days": [
     {
-      "date": "2026-04-27",
+      "date": "2026-04-13",
       "day_name": "ראשון",
       "is_prep_day": true,
       "meals": {
@@ -61,7 +61,7 @@
       "daily_totals": { "calories": 1930, "protein": 195, "carbs": 204, "fat": 41 }
     },
     {
-      "date": "2026-04-28",
+      "date": "2026-04-14",
       "day_name": "שני",
       "is_prep_day": false,
       "meals": {
@@ -120,7 +120,7 @@
       "daily_totals": { "calories": 1940, "protein": 196, "carbs": 200, "fat": 43 }
     },
     {
-      "date": "2026-04-29",
+      "date": "2026-04-15",
       "day_name": "שלישי",
       "is_prep_day": false,
       "meals": {
@@ -177,7 +177,7 @@
       "daily_totals": { "calories": 1930, "protein": 200, "carbs": 201, "fat": 37 }
     },
     {
-      "date": "2026-04-30",
+      "date": "2026-04-16",
       "day_name": "רביעי",
       "is_prep_day": true,
       "meals": {
@@ -235,7 +235,7 @@
       "daily_totals": { "calories": 1930, "protein": 186, "carbs": 205, "fat": 45 }
     },
     {
-      "date": "2026-05-01",
+      "date": "2026-04-17",
       "day_name": "חמישי",
       "is_prep_day": false,
       "meals": {
@@ -294,7 +294,7 @@
       "daily_totals": { "calories": 1930, "protein": 195, "carbs": 181, "fat": 44 }
     },
     {
-      "date": "2026-05-02",
+      "date": "2026-04-18",
       "day_name": "שישי",
       "is_prep_day": false,
       "meals": {
@@ -350,7 +350,7 @@
       "daily_totals": { "calories": 1930, "protein": 195, "carbs": 196, "fat": 42 }
     },
     {
-      "date": "2026-05-03",
+      "date": "2026-04-19",
       "day_name": "שבת",
       "is_prep_day": false,
       "meals": {
