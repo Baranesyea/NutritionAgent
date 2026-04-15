@@ -6,6 +6,58 @@ const REPO_OWNER = 'baranesyea';
 const REPO_NAME = 'nutritionagent';
 const PAT_KEY = 'nutrition-gh-token';
 
+// ── Human-readable quantity hints ─────────────────────────────────
+
+const QUANTITY_HINTS = [
+  { match: ['שיבולת שועל'],                  g: { 30:'3 כפות', 40:'4 כפות', 50:'½ כוס' } },
+  { match: ['יוגורט חלבון', 'יוגורט'],       g: { 100:'½ גביע', 170:'גביע', 200:'גביע גדול', 250:'גביע גדול+' } },
+  { match: ['קוטג'],                          g: { 100:'½ גביע', 200:'גביע' } },
+  { match: ['אבקת חלבון'],                    g: { 15:'כף גדושה', 20:'כף וחצי', 25:'2 כפות', 30:'2 כפות גדושות' } },
+  { match: ['שמן זית'],                       g: { 3:'כפית', 5:'כפית', 8:'כף', 10:'כף', 15:'כף+כפית' }, ml: { 3:'כפית', 5:'כפית', 10:'כף' } },
+  { match: ['דבש'],                           g: { 5:'כפית', 10:'כף' } },
+  { match: ['חזה עוף'],                       g: { 150:'חזה קטן', 180:'חזה בינוני', 200:'חזה בינוני', 250:'חזה גדול' } },
+  { match: ['ירך עוף'],                       g: { 180:'ירך בינונית', 200:'ירך בינונית', 220:'ירך גדולה' } },
+  { match: ['בשר טחון'],                      g: { 150:'כדור גדול', 200:'2 כדורים גדולים' } },
+  { match: ['טונה'],                          g: { 80:'קופסא', 160:'2 קופסאות' } },
+  { match: ['סלמון'],                         g: { 150:'פילה קטן', 200:'פילה בינוני' } },
+  { match: ['מושט', 'דניס', 'דג לבן'],       g: { 200:'פילה בינוני', 250:'פילה גדול' } },
+  { match: ['אורז'],                          g: { 80:'½ כוס יבש', 120:'¾ כוס מבושל', 130:'¾ כוס מבושל', 160:'כוס מבושל', 180:'כוס+ מבושל' } },
+  { match: ['פסטה'],                          g: { 80:'קומץ יבש', 140:'¾ כוס מבושל', 150:'כוס מבושל' } },
+  { match: ['קינואה'],                        g: { 150:'¾ כוס מבושל', 180:'כוס מבושל' } },
+  { match: ['קוסקוס'],                        g: { 100:'½ כוס', 150:'¾ כוס מבושל' } },
+  { match: ['עדשים'],                         g: { 50:'¼ כוס מבושל', 60:'⅓ כוס מבושל', 80:'½ כוס מבושל' } },
+  { match: ['לחם מלא'],                       g: { 30:'פרוסה', 60:'2 פרוסות', 70:'2 פרוסות' } },
+  { match: ['בטטה'],                          g: { 200:'בטטה בינונית', 250:'בטטה גדולה' } },
+  { match: ['תפוחי אדמה', 'תפו"א'],          g: { 200:'2 קטנים', 220:'2 בינוניים', 250:'2 בינוניים', 280:'2 גדולים' } },
+  { match: ['פירות יער'],                     g: { 80:'½ כוס', 100:'¾ כוס' } },
+  { match: ['ברוקולי'],                       g: { 100:'כוס', 120:'כוס גדושה' } },
+  { match: ['שקדים', 'קשיו'],                 g: { 30:'חופן' } },
+  { match: ['אגוזי מלך'],                     g: { 5:'3-4 אגוזים', 10:'5-6 אגוזים', 15:'8 אגוזים' } },
+  { match: ['חמאת בוטנים'],                   g: { 15:'כף', 20:'כף גדושה', 30:'2 כפות' } },
+  { match: ['טחינה'],                         g: { 15:'כף', 20:'כף גדושה', 30:'2 כפות' } },
+  { match: ['חלב סויה'],                      g: { 200:'כוס' }, ml: { 200:'כוס' } },
+  { match: ['רוטב עגבניות'],                  g: { 100:'½ כוס', 120:'½ כוס' } },
+  { match: ['חומוס'],                         g: { 40:'2 כפות', 60:'3 כפות' } },
+];
+
+function humanize(itemName, amount) {
+  const mG  = amount.match(/^(\d+(?:\.\d+)?)g$/);
+  const mMl = amount.match(/^(\d+(?:\.\d+)?)ml$/);
+  if (!mG && !mMl) return null;
+  const val  = parseFloat(mG ? mG[1] : mMl[1]);
+  const unit = mG ? 'g' : 'ml';
+  for (const entry of QUANTITY_HINTS) {
+    if (entry.match.some(k => itemName.includes(k))) {
+      const table = (unit === 'ml' && entry.ml) ? entry.ml : entry.g;
+      if (!table) continue;
+      if (table[val]) return table[val];
+      const nearest = Object.keys(table).map(Number).sort((a, b) => Math.abs(a - val) - Math.abs(b - val))[0];
+      if (Math.abs(nearest - val) <= 25) return table[nearest];
+    }
+  }
+  return null;
+}
+
 const MEAL_LABELS = {
   breakfast: 'בוקר',
   lunch: 'צהריים',
@@ -217,7 +269,10 @@ function renderDayContent(idx) {
   const mealsHtml = mealOrder.map(key => {
     const meal = day.meals[key];
     if (!meal || !meal.name) return '';
-    const ingr = meal.ingredients ? meal.ingredients.map(i => `<li>${i.item} — ${i.amount}</li>`).join('') : '';
+    const ingr = meal.ingredients ? meal.ingredients.map(i => {
+      const hint = humanize(i.item, i.amount);
+      return `<li>${i.item} — ${i.amount}${hint ? ` <span class="qty-hint">(${hint})</span>` : ''}</li>`;
+    }).join('') : '';
     const m = meal.macros || {};
     return `
       <div class="meal-card">
@@ -292,7 +347,10 @@ function renderShopping() {
   }
 
   html += `</div>
-    <button class="clear-btn" onclick="clearChecked()">נקה סימונים</button>
+    <div class="list-actions">
+      <button class="copy-btn" onclick="copyChecked()">📋 העתק מסומנים</button>
+      <button class="clear-btn" onclick="clearChecked()">נקה סימונים</button>
+    </div>
   </div>`;
   el.innerHTML = html;
 }
@@ -309,6 +367,27 @@ function toggleItem(key, labelEl) {
 function clearChecked() {
   localStorage.removeItem(SHOPPING_KEY);
   renderShopping();
+}
+
+function copyChecked() {
+  const checked = getChecked();
+  const cats = state.shoppingList.categories;
+  const lines = [];
+  for (const [catName, items] of Object.entries(cats)) {
+    items.forEach((item, idx) => {
+      if (checked[`${catName}-${idx}`]) lines.push(`${item.item} — ${item.amount}`);
+    });
+  }
+  if (!lines.length) { showToast('לא סומנו פריטים'); return; }
+  const text = lines.join('\n');
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => showToast(`הועתקו ${lines.length} פריטים ✓`));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    showToast(`הועתקו ${lines.length} פריטים ✓`);
+  }
 }
 
 // ── Section: Meal Prep ────────────────────────────────────────────
@@ -713,3 +792,4 @@ window.closeTokenModal = closeTokenModal;
 window.saveTokenAndContinue = saveTokenAndContinue;
 window.editLogEntry = editLogEntry;
 window.deleteLogEntry = deleteLogEntry;
+window.copyChecked = copyChecked;

@@ -210,6 +210,7 @@ header .week-label { font-size: 0.78rem; color: var(--muted); }
 }
 .meal-ingredients li { list-style: none; }
 .meal-ingredients li::before { content: "· "; }
+.qty-hint { color: var(--blue); font-size: 0.7rem; opacity: 0.8; }
 .meal-macros {
   display: flex;
   gap: 8px;
@@ -307,16 +308,29 @@ header .week-label { font-size: 0.78rem; color: var(--muted); }
   color: var(--muted);
   text-decoration: line-through;
 }
+.list-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.clear-btn, .copy-btn {
+  flex: 1;
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: inherit;
+}
 .clear-btn {
   background: none;
   border: 1px solid var(--border);
   color: var(--muted);
-  border-radius: var(--radius-sm);
-  padding: 6px 14px;
-  font-size: 0.78rem;
-  cursor: pointer;
-  margin-top: 12px;
-  width: 100%;
+}
+.copy-btn {
+  background: var(--primary-dim);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-weight: 600;
 }
 
 /* === Meal Prep === */
