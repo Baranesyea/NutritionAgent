@@ -121,24 +121,33 @@ nutritionagent/
 
 ### שלבים
 
-1. **קרא** `knowledge/profile.json`
-2. **קרא** `data/history/` — מה חזר יותר מדי בשבועות אחרונים (כדי לגוון)
-3. **צור** `data/current-week/menu.json` — תפריט ל-7 ימים (ראשון-שבת)
-   - יום ראשון ורביעי = ימי Meal Prep (אפשר בישול מורכב יותר)
-   - שאר הימים = חימום בלבד
-   - כמויות מדויקות לכל מרכיב
-   - מאקרוס לכל ארוחה + סה"כ יומי
-4. **צור** `data/current-week/shopping-list.json` — רשימת קניות מאוחדת
-   - קטגוריות: חלבונים, מוצרי חלב ותחליפים, פחמימות, ירקות, פירות, אחר
-   - כמויות מאוחדות לכל השבוע
-5. **צור** `data/current-week/meal-prep.json` — 2 סשנים
-   - סשן 1: ראשון, מכסה ראשון-רביעי
-   - סשן 2: רביעי, מכסה חמישי-שבת
-   - כל סשן: רשימת משימות, סדר חכם, זמנים
-6. **אפס** `data/current-week/balance.json` — שבוע חדש, actual=0, status=pending
-7. **אפס** `data/current-week/log.json` — ערך ראשון: "תפריט שבועי נוצר"
-8. **העבר שבוע ישן** ל-`data/history/week-YYYY-MM-DD/` (menu, balance, log)
-9. **דחוף** הכל לריפו (commit + push) — הדשבורד יתעדכן אוטומטית
+**שלב א' — לימוד מהעבר (חובה לפני בניית תפריט):**
+
+1. **קרא** `knowledge/profile.json` — פרופיל ויעדי מאקרוס
+2. **קרא** `data/current-week/log.json` — כל האירועים מהשבוע שמסתיים:
+   - entries עם `type: deviation` → מה ערן חרג ומתי
+   - entry מסוג `weekly_summary` (אם קיים) → המלצת הסוכן לשבוע הבא
+3. **קרא** `data/current-week/balance.json` — עמד ביעד השבועי? באילו ימים?
+4. **קרא** `data/history/` — 2-3 שבועות אחרונים:
+   - אילו מאכלים חזרו יותר מדי (לגוון)
+   - אילו ימים/ארוחות היו בעייתיים שוב ושוב
+   - מה עבד ומה לא
+
+**שלב ב' — בניית התפריט:**
+
+5. **צור** `data/current-week/menu.json` — תפריט ל-7 ימים (ראשון-שבת)
+   - **התחשב בלקחים**: אם חורגים באותה ארוחה שוב ושוב — שנה אותה
+   - **גוון**: אל תחזור על אותו מאכל שכבר היה 3 שבועות ברצף
+   - ראשון ורביעי = ימי Meal Prep (בישול עד 60 דק')
+   - שאר הימים = חימום עד 15 דק'
+   - כמויות מדויקות לכל מרכיב + מאקרוס לכל ארוחה + סה"כ יומי
+
+6. **צור** `data/current-week/shopping-list.json` — קטגוריות: חלבונים, חלב, פחמימות, ירקות, פירות, אחר
+7. **צור** `data/current-week/meal-prep.json` — 2 סשנים עם משימות מסודרות
+8. **אפס** `data/current-week/balance.json` — שבוע חדש, actual=0, status=pending
+9. **אפס** `data/current-week/log.json` — ערך ראשון שמציין כמה סטיות נלקחו בחשבון מהשבוע הקודם
+10. **העבר שבוע ישן** ל-`data/history/week-YYYY-MM-DD/` (menu, balance, log)
+11. **דחוף** הכל לריפו עם commit: `🗓️ Weekly plan: week of YYYY-MM-DD`
 
 ### פורמט הקומיט
 ```
@@ -156,15 +165,34 @@ nutritionagent/
 
 ### שלבים
 
-1. **קרא** `data/current-week/menu.json` — מה מתוכנן להיום
-2. **קרא** `data/current-week/log.json` — סטיות שלא טופלו עדיין
-3. **קרא** `data/current-week/balance.json` — מצב שבועי
-4. **אם יש סטייה שלא טופלה:**
-   - חשב תיקון לפי כללי הסטיות
-   - עדכן `menu.json` לימים שנותרו
-   - עדכן `balance.json`
-   - הוסף ערך ל-`log.json`: "תוקן תפריט — הורדו X קל' לימים Y-Z"
-   - דחוף לריפו — הדשבורד יתעדכן אוטומטית
+1. **קרא** `data/current-week/menu.json` — מה מתוכנן היום ולימים הבאים
+2. **קרא** `data/current-week/log.json` — **חפש entries עם `processed: false`**
+   - אלה דיווחי הדשבורד של ערן שלא טופלו עדיין
+   - יכול להיות `source: dashboard` או `source: user_report`
+3. **קרא** `data/current-week/balance.json` — מצב שבועי נוכחי
+
+**לכל entry עם `processed: false`:**
+
+4. הבן מה ערן דיווח (`message` + `estimated_calories` אם יש)
+5. אם אין `estimated_calories` — העריך לפי תיאור המזון (נתוני מסעדות/מוצרים נפוצים) גם מאקרוס (protein/carbs/fat)
+6. עדכן `balance.json`:
+   - הוסף לקלוריות של `today.actual`
+   - חשב `deviation` וקבע `status`
+   - עדכן `weekly_actual` ו-`weekly_remaining`
+7. סווג את הסטייה וחשב תיקון:
+   - **קטנה** (עד 300 קל') → תקן ביום למחרת בלבד
+   - **בינונית** (300-600 קל') → פזר על 2-3 ימים
+   - **גדולה** (600+ קל') → פזר על שאר השבוע
+8. עדכן `menu.json` לימים שנותרו:
+   - קצץ בעיקר בפחמימות ובשומן
+   - חלבון לא יורד מתחת ל-170g/יום
+   - קלוריות לא יורדות מתחת ל-1,600/יום
+9. **סמן את ה-entry המקורי** כ-`processed: true` והוסף `processed_at` timestamp
+10. הוסף entry חדש מסוג `correction` שמסביר מה שונה
+
+11. **דחוף** הכל לריפו עם commit: `🔄 Daily correction: YYYY-MM-DD`
+
+**אם אין entries עם `processed: false`** — אל תעשה כלום ואל תדחוף commit ריק.
 
 ### פורמט הקומיט (כשיש שינויים)
 ```
@@ -181,19 +209,42 @@ nutritionagent/
 
 ### שלבים
 
-1. **קרא** `data/current-week/balance.json`
-2. **חשב:**
-   - האם עמד ביעד השבועי? (±300 קל' = עמד)
-   - ממוצע קלוריות יומי
-   - ממוצע חלבון יומי
-   - ימים עם סטיות
-3. **כתוב** סיכום ל-`log.json` — כולל:
-   - עמדת ביעד? ✅/⚠️
-   - ממוצע קל' יומי
-   - ממוצע חלבון יומי
-   - מספר סטיות
-   - 1-2 משפטים: מה עבד, מה פחות
-4. **דחוף** לריפו — הסיכום יופיע בדשבורד בלשונית "לוג"
+1. **קרא** `data/current-week/balance.json` — נתוני השבוע
+2. **קרא** `data/current-week/log.json` — כל האירועים מהשבוע
+3. **קרא** `data/current-week/menu.json` — מה היה מתוכנן
+
+4. **חשב:**
+   - עמד ביעד השבועי? (±300 קל' מ-13,510 = עמד)
+   - ממוצע קלוריות יומי בפועל
+   - ממוצע חלבון יומי בפועל
+   - מספר סטיות שדיווח עליהן ערן
+   - מספר תיקונים שהמערכת ביצעה
+   - האם חלבון ירד מתחת ל-170g באיזשהו יום?
+
+5. **נתח דפוסים:**
+   - האם יש ארוחה ספציפית שחורגים בה הרבה?
+   - יום בשבוע בעייתי?
+   - מאכלים שעבדו טוב?
+
+6. **הוסף entry סיכום** ל-`log.json` בפורמט:
+   ```json
+   {
+     "timestamp": "...",
+     "type": "weekly_summary",
+     "status": "on_track" | "off_track",
+     "avg_daily_calories": X,
+     "avg_daily_protein": X,
+     "deviations_count": X,
+     "corrections_count": X,
+     "what_worked": "משפט אחד",
+     "what_didnt": "משפט אחד",
+     "recommendation_for_next_week": "משפט אחד — מה לעשות אחרת"
+   }
+   ```
+
+7. **דחוף** לריפו עם commit: `📊 Weekly summary: week of YYYY-MM-DD`
+
+**חשוב:** הרוטין השבועי (רוטין 1) יקרא את ה-`weekly_summary` הזה ביום חמישי ויבנה את השבוע הבא בהתחשב ב-`recommendation_for_next_week`.
 
 ---
 
