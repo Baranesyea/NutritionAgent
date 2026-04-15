@@ -390,9 +390,27 @@ header .week-label { font-size: 0.78rem; color: var(--muted); }
 .log-icon.correction { background: var(--amber-dim); }
 .log-icon.system { background: var(--primary-dim); }
 .log-icon.weight { background: rgba(96,165,250,0.12); }
-.log-body { flex: 1; }
+.log-body { flex: 1; min-width: 0; }
 .log-message { font-size: 0.85rem; line-height: 1.5; }
 .log-time { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+.log-actions { display: flex; gap: 4px; flex-shrink: 0; }
+.log-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--muted);
+  transition: border-color 0.15s, color 0.15s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.log-btn:hover { border-color: var(--primary); color: var(--primary); }
+.log-locked { opacity: 0.6; margin-right: 4px; }
 
 /* === Balance === */
 .balance-table {

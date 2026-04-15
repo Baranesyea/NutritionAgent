@@ -363,17 +363,63 @@ function renderLog() {
   const entries = [...state.log.entries].reverse();
   const entriesHtml = entries.map(e => {
     const iconData = LOG_ICONS[e.type] || { icon: '📌', cls: 'system' };
+    const isEditable = e.source === 'dashboard' && e.processed === false;
+    const cal = e.estimated_calories ? ` <span style="color:var(--amber)">(~${e.estimated_calories} קל')</span>` : '';
+    const editedBadge = e.edited_at ? ` <span style="color:var(--muted);font-size:0.7rem">(נערך)</span>` : '';
+    const actions = isEditable ? `
+      <div class="log-actions">
+        <button class="log-btn" onclick="editLogEntry('${e.timestamp}')" title="ערוך">✏️</button>
+        <button class="log-btn" onclick="deleteLogEntry('${e.timestamp}')" title="מחק">🗑️</button>
+      </div>` : '';
+    const lockedBadge = e.processed ? ` <span class="log-locked" title="טופל על ידי הסוכן">🔒</span>` : '';
     return `
       <div class="log-entry">
         <div class="log-icon ${iconData.cls}">${iconData.icon}</div>
         <div class="log-body">
-          <div class="log-message">${e.message}</div>
+          <div class="log-message">${e.message}${cal}${editedBadge}${lockedBadge}</div>
           ${e.timestamp ? `<div class="log-time">${formatDateTime(e.timestamp)}</div>` : ''}
         </div>
+        ${actions}
       </div>`;
   }).join('');
 
   el.innerHTML = `<div class="container"><div class="card">${entriesHtml}</div></div>`;
+}
+
+// ── Edit / Delete log entries ─────────────────────────────────────
+
+let editingTimestamp = null;
+
+function editLogEntry(timestamp) {
+  const entry = state.log.entries.find(e => e.timestamp === timestamp);
+  if (!entry) return;
+  if (entry.processed) { showToast('לא ניתן לערוך — הדיווח כבר טופל'); return; }
+  editingTimestamp = timestamp;
+  openReportModal();
+  document.getElementById('report-text').value = entry.message.replace(/^ערן דיווח: /, '');
+  document.getElementById('report-cal').value = entry.estimated_calories || '';
+  const titleEl = document.querySelector('#report-modal .modal-title');
+  if (titleEl) titleEl.textContent = 'עריכת דיווח';
+  const btn = document.getElementById('report-btn-submit');
+  if (btn) btn.textContent = 'שמור שינויים';
+}
+
+async function deleteLogEntry(timestamp) {
+  if (!getToken()) { openTokenModal(() => deleteLogEntry(timestamp)); return; }
+  if (!confirm('למחוק את הדיווח?')) return;
+  try {
+    const file = await githubGetFile('data/current-week/log.json');
+    const current = JSON.parse(decodeURIComponent(escape(atob(file.content.replace(/\n/g, '')))));
+    const entry = current.entries.find(e => e.timestamp === timestamp);
+    if (entry && entry.processed) { showToast('לא ניתן למחוק — הדיווח כבר טופל'); return; }
+    current.entries = current.entries.filter(e => e.timestamp !== timestamp);
+    await githubPutFile('data/current-week/log.json', current, file.sha, `🗑️ Delete user note`);
+    state.log = await fetchJSON('data/current-week/log.json');
+    renderLog();
+    showToast('הדיווח נמחק');
+  } catch (e) {
+    showToast('שגיאה: ' + e.message);
+  }
 }
 
 // ── Section: Balance ──────────────────────────────────────────────
@@ -566,16 +612,21 @@ function saveTokenAndContinue() {
 
 // ── Report Modal ──────────────────────────────────────────────────
 
-function openReportModal() {
+function openReportModal(isNew) {
   if (!getToken()) {
-    openTokenModal(() => openReportModal());
+    openTokenModal(() => openReportModal(true));
     return;
   }
-  document.getElementById('report-text').value = '';
-  document.getElementById('report-cal').value = '';
+  if (isNew) {
+    editingTimestamp = null;
+    document.getElementById('report-text').value = '';
+    document.getElementById('report-cal').value = '';
+    const titleEl = document.querySelector('#report-modal .modal-title');
+    if (titleEl) titleEl.textContent = 'דיווח לסוכן';
+  }
   document.getElementById('report-error').textContent = '';
   document.getElementById('report-btn-submit').disabled = false;
-  document.getElementById('report-btn-submit').textContent = 'שלח לסוכן';
+  if (!editingTimestamp) document.getElementById('report-btn-submit').textContent = 'שלח לסוכן';
   document.getElementById('report-modal').classList.add('open');
   document.getElementById('report-text').focus();
 }
@@ -593,35 +644,50 @@ async function submitReport() {
   if (!text) { errEl.textContent = 'נא לכתוב מה אכלת'; return; }
 
   btn.disabled = true;
-  btn.textContent = 'שולח...';
+  btn.textContent = 'שומר...';
   errEl.textContent = '';
 
-  const now = new Date();
-  const entry = {
-    timestamp: now.toISOString(),
-    type: 'deviation',
-    source: 'dashboard',
-    processed: false,
-    message: `ערן דיווח: ${text}`,
-    date: now.toLocaleDateString('sv-SE'),
-    ...(cal ? { estimated_calories: cal } : {})
-  };
-
   try {
-    await appendToLog(entry);
-    // Refresh log in state
+    const file = await githubGetFile('data/current-week/log.json');
+    const current = JSON.parse(decodeURIComponent(escape(atob(file.content.replace(/\n/g, '')))));
+
+    if (editingTimestamp) {
+      // Edit existing entry
+      const idx = current.entries.findIndex(e => e.timestamp === editingTimestamp);
+      if (idx < 0) throw new Error('הדיווח לא נמצא');
+      if (current.entries[idx].processed) throw new Error('הדיווח כבר טופל ולא ניתן לערוך אותו');
+      current.entries[idx].message = `ערן דיווח: ${text}`;
+      if (cal) current.entries[idx].estimated_calories = cal;
+      else delete current.entries[idx].estimated_calories;
+      current.entries[idx].edited_at = new Date().toISOString();
+      await githubPutFile('data/current-week/log.json', current, file.sha, `✏️ Edit user note`);
+    } else {
+      // New entry
+      const now = new Date();
+      current.entries.push({
+        timestamp: now.toISOString(),
+        type: 'deviation',
+        source: 'dashboard',
+        processed: false,
+        message: `ערן דיווח: ${text}`,
+        date: now.toLocaleDateString('sv-SE'),
+        ...(cal ? { estimated_calories: cal } : {})
+      });
+      await githubPutFile('data/current-week/log.json', current, file.sha, `📝 User note`);
+    }
+
     state.log = await fetchJSON('data/current-week/log.json');
+    const wasEditing = !!editingTimestamp;
+    editingTimestamp = null;
     closeReportModal();
-    // Show confirmation
-    showToast('הדיווח נשמר — הסוכן יתחשב בזה');
-    // Re-render log if active
+    showToast(wasEditing ? 'הדיווח עודכן' : 'הדיווח נשמר — הסוכן יתחשב בזה');
     if (state.activeSection === 'log') renderLog();
   } catch (e) {
     errEl.textContent = e.message.includes('401') || e.message.includes('403')
       ? 'מפתח שגוי — לחץ על ⚙️ לעדכון'
       : `שגיאה: ${e.message}`;
     btn.disabled = false;
-    btn.textContent = 'שלח לסוכן';
+    btn.textContent = editingTimestamp ? 'שמור שינויים' : 'שלח לסוכן';
   }
 }
 
@@ -645,3 +711,5 @@ window.submitReport = submitReport;
 window.openTokenModal = openTokenModal;
 window.closeTokenModal = closeTokenModal;
 window.saveTokenAndContinue = saveTokenAndContinue;
+window.editLogEntry = editLogEntry;
+window.deleteLogEntry = deleteLogEntry;
