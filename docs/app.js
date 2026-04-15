@@ -414,7 +414,7 @@ async function deleteLogEntry(timestamp) {
     if (entry && entry.processed) { showToast('לא ניתן למחוק — הדיווח כבר טופל'); return; }
     current.entries = current.entries.filter(e => e.timestamp !== timestamp);
     await githubPutFile('data/current-week/log.json', current, file.sha, `🗑️ Delete user note`);
-    state.log = await fetchJSON('data/current-week/log.json');
+    state.log = current;
     renderLog();
     showToast('הדיווח נמחק');
   } catch (e) {
@@ -676,7 +676,7 @@ async function submitReport() {
       await githubPutFile('data/current-week/log.json', current, file.sha, `📝 User note`);
     }
 
-    state.log = await fetchJSON('data/current-week/log.json');
+    state.log = current;
     const wasEditing = !!editingTimestamp;
     editingTimestamp = null;
     closeReportModal();
