@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="theme-color" content="#0f0f0f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>תזונה | ערן</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="inner">
+      <div>
+        <h1>🥗 תזונה | ערן</h1>
+        <div class="last-updated" id="last-updated"></div>
+      </div>
+      <div class="week-label" id="week-label">טוען...</div>
+    </div>
+  </header>
+
+  <!-- Nav Tabs -->
+  <div class="nav-tabs">
+    <button id="tab-status"   class="nav-tab active"  onclick="showSection('status')">סטטוס</button>
+    <button id="tab-menu"     class="nav-tab"          onclick="showSection('menu')">תפריט</button>
+    <button id="tab-shopping" class="nav-tab"          onclick="showSection('shopping')">קניות 🛒</button>
+    <button id="tab-prep"     class="nav-tab"          onclick="showSection('prep')">Meal Prep</button>
+    <button id="tab-log"      class="nav-tab"          onclick="showSection('log')">לוג</button>
+    <button id="tab-balance"  class="nav-tab"          onclick="showSection('balance')">מאזן</button>
+  </div>
+
+  <!-- Section: Weekly Status -->
+  <section id="sec-status" class="section active">
+    <div class="container">
+      <div class="loading">
+        <div class="skeleton" style="width:60%;height:24px;margin-bottom:16px;"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton" style="width:80%;"></div>
+        <div class="skeleton" style="width:90%;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Daily Menu -->
+  <section id="sec-menu" class="section">
+    <div class="container">
+      <div class="loading"><div class="skeleton"></div><div class="skeleton" style="width:75%;"></div></div>
+    </div>
+  </section>
+
+  <!-- Section: Shopping List -->
+  <section id="sec-shopping" class="section">
+    <div class="container">
+      <div class="loading"><div class="skeleton"></div><div class="skeleton" style="width:85%;"></div></div>
+    </div>
+  </section>
+
+  <!-- Section: Meal Prep -->
+  <section id="sec-prep" class="section">
+    <div class="container">
+      <div class="loading"><div class="skeleton"></div><div class="skeleton" style="width:70%;"></div></div>
+    </div>
+  </section>
+
+  <!-- Section: Log -->
+  <section id="sec-log" class="section">
+    <div class="container">
+      <div class="loading"><div class="skeleton"></div><div class="skeleton" style="width:80%;"></div></div>
+    </div>
+  </section>
+
+  <!-- Section: Balance -->
+  <section id="sec-balance" class="section">
+    <div class="container">
+      <div class="loading"><div class="skeleton"></div><div class="skeleton" style="width:90%;"></div></div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

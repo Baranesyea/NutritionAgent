@@ -1,0 +1,384 @@
+{
+  "week_start": "2026-04-20",
+  "week_end": "2026-04-26",
+  "days": [
+    {
+      "date": "2026-04-20",
+      "day_name": "ראשון",
+      "is_prep_day": true,
+      "meals": {
+        "breakfast": {
+          "name": "שייק חלבון עם שיבולת שועל ובננה",
+          "ingredients": [
+            { "item": "אבקת חלבון טבעונית", "amount": "30g" },
+            { "item": "שיבולת שועל", "amount": "50g" },
+            { "item": "בננה", "amount": "1 בינונית (120g)" },
+            { "item": "מים", "amount": "300ml" }
+          ],
+          "macros": { "calories": 450, "protein": 45, "carbs": 55, "fat": 8 },
+          "prep_time_minutes": 5,
+          "notes": "לערבב בבלנדר"
+        },
+        "lunch": {
+          "name": "חזה עוף עם אורז ובצל",
+          "ingredients": [
+            { "item": "חזה עוף", "amount": "180g" },
+            { "item": "אורז לבן מבושל", "amount": "150g" },
+            { "item": "שמן זית", "amount": "5ml" },
+            { "item": "מלח ופלפל", "amount": "לפי טעם" }
+          ],
+          "macros": { "calories": 550, "protein": 55, "carbs": 55, "fat": 12 },
+          "prep_time_minutes": 15,
+          "notes": "מוכן מהמיל פרפ — לחמם 2 דקות"
+        },
+        "snack": {
+          "name": "יוגורט חלבון עם תפוח",
+          "ingredients": [
+            { "item": "יוגורט חלבון", "amount": "170g" },
+            { "item": "תפוח", "amount": "1 בינוני (150g)" }
+          ],
+          "macros": { "calories": 180, "protein": 15, "carbs": 22, "fat": 4 },
+          "prep_time_minutes": 2,
+          "notes": ""
+        },
+        "dinner": {
+          "name": "סלמון אפוי עם בטטה",
+          "ingredients": [
+            { "item": "פילה סלמון", "amount": "200g" },
+            { "item": "בטטה אפויה", "amount": "200g" },
+            { "item": "שמן זית", "amount": "5ml" },
+            { "item": "לימון", "amount": "חצי" }
+          ],
+          "macros": { "calories": 750, "protein": 78, "carbs": 61, "fat": 19 },
+          "prep_time_minutes": 25,
+          "notes": "אופים את הסלמון 180 מעלות 20 דק'"
+        }
+      },
+      "daily_totals": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 }
+    },
+    {
+      "date": "2026-04-21",
+      "day_name": "שני",
+      "is_prep_day": false,
+      "meals": {
+        "breakfast": {
+          "name": "שייק חלבון עם שיבולת שועל ובננה",
+          "ingredients": [
+            { "item": "אבקת חלבון טבעונית", "amount": "30g" },
+            { "item": "שיבולת שועל", "amount": "50g" },
+            { "item": "בננה", "amount": "1 בינונית (120g)" },
+            { "item": "מים", "amount": "300ml" }
+          ],
+          "macros": { "calories": 450, "protein": 45, "carbs": 55, "fat": 8 },
+          "prep_time_minutes": 5,
+          "notes": ""
+        },
+        "lunch": {
+          "name": "חזה עוף עם אורז ובצל",
+          "ingredients": [
+            { "item": "חזה עוף", "amount": "180g" },
+            { "item": "אורז לבן מבושל", "amount": "150g" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 550, "protein": 55, "carbs": 55, "fat": 12 },
+          "prep_time_minutes": 2,
+          "notes": "מוכן מהמיל פרפ — לחמם"
+        },
+        "snack": {
+          "name": "קוטג' עם תות",
+          "ingredients": [
+            { "item": "קוטג' 5%", "amount": "200g" },
+            { "item": "תותים", "amount": "100g" }
+          ],
+          "macros": { "calories": 180, "protein": 14, "carbs": 14, "fat": 6 },
+          "prep_time_minutes": 2,
+          "notes": ""
+        },
+        "dinner": {
+          "name": "ביצים מקושקשות עם לחם מלא וירקות",
+          "ingredients": [
+            { "item": "ביצים", "amount": "4 ביצים" },
+            { "item": "לחם מלא", "amount": "2 פרוסות (60g)" },
+            { "item": "גבינה צהובה 9%", "amount": "30g" },
+            { "item": "עגבניה", "amount": "1 בינונית" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 750, "protein": 79, "carbs": 69, "fat": 17 },
+          "prep_time_minutes": 10,
+          "notes": ""
+        }
+      },
+      "daily_totals": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 }
+    },
+    {
+      "date": "2026-04-22",
+      "day_name": "שלישי",
+      "is_prep_day": false,
+      "meals": {
+        "breakfast": {
+          "name": "שיבולת שועל עם חלבון ובננה",
+          "ingredients": [
+            { "item": "שיבולת שועל", "amount": "80g" },
+            { "item": "אבקת חלבון טבעונית", "amount": "20g" },
+            { "item": "בננה", "amount": "1 קטנה (90g)" },
+            { "item": "מים", "amount": "250ml" }
+          ],
+          "macros": { "calories": 450, "protein": 38, "carbs": 62, "fat": 7 },
+          "prep_time_minutes": 5,
+          "notes": "לבשל 3 דקות עם מים"
+        },
+        "lunch": {
+          "name": "טונה עם אורז ועגבניה",
+          "ingredients": [
+            { "item": "טונה בקופסא במים", "amount": "160g (2 קופסאות)" },
+            { "item": "אורז לבן מבושל", "amount": "150g" },
+            { "item": "עגבניה", "amount": "1 גדולה" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 550, "protein": 62, "carbs": 52, "fat": 11 },
+          "prep_time_minutes": 3,
+          "notes": ""
+        },
+        "snack": {
+          "name": "30g שקדים + תפוח",
+          "ingredients": [
+            { "item": "שקדים", "amount": "30g (~22 שקדים)" },
+            { "item": "תפוח", "amount": "1 בינוני (150g)" }
+          ],
+          "macros": { "calories": 180, "protein": 5, "carbs": 22, "fat": 9 },
+          "prep_time_minutes": 0,
+          "notes": ""
+        },
+        "dinner": {
+          "name": "ירך עוף עם פסטה",
+          "ingredients": [
+            { "item": "ירך עוף ללא עור", "amount": "200g" },
+            { "item": "פסטה מבושלת", "amount": "130g" },
+            { "item": "רוטב עגבניות", "amount": "80g" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 750, "protein": 83, "carbs": 57, "fat": 16 },
+          "prep_time_minutes": 15,
+          "notes": ""
+        }
+      },
+      "daily_totals": { "calories": 1930, "protein": 188, "carbs": 193, "fat": 43 }
+    },
+    {
+      "date": "2026-04-23",
+      "day_name": "רביעי",
+      "is_prep_day": true,
+      "meals": {
+        "breakfast": {
+          "name": "שייק חלבון עם שיבולת שועל ובננה",
+          "ingredients": [
+            { "item": "אבקת חלבון טבעונית", "amount": "30g" },
+            { "item": "שיבולת שועל", "amount": "50g" },
+            { "item": "בננה", "amount": "1 בינונית (120g)" },
+            { "item": "מים", "amount": "300ml" }
+          ],
+          "macros": { "calories": 450, "protein": 45, "carbs": 55, "fat": 8 },
+          "prep_time_minutes": 5,
+          "notes": ""
+        },
+        "lunch": {
+          "name": "בשר טחון רזה עם אורז",
+          "ingredients": [
+            { "item": "בשר טחון 5% שומן", "amount": "150g" },
+            { "item": "אורז לבן מבושל", "amount": "130g" },
+            { "item": "בצל", "amount": "חצי בינוני" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 550, "protein": 58, "carbs": 48, "fat": 14 },
+          "prep_time_minutes": 15,
+          "notes": ""
+        },
+        "snack": {
+          "name": "יוגורט חלבון עם אוכמניות",
+          "ingredients": [
+            { "item": "יוגורט חלבון", "amount": "170g" },
+            { "item": "אוכמניות קפואות", "amount": "80g" }
+          ],
+          "macros": { "calories": 180, "protein": 17, "carbs": 19, "fat": 3 },
+          "prep_time_minutes": 2,
+          "notes": ""
+        },
+        "dinner": {
+          "name": "סלמון אפוי עם תפוחי אדמה",
+          "ingredients": [
+            { "item": "פילה סלמון", "amount": "200g" },
+            { "item": "תפוחי אדמה אפויים", "amount": "200g" },
+            { "item": "שמן זית", "amount": "5ml" },
+            { "item": "לימון + שום", "amount": "לפי טעם" }
+          ],
+          "macros": { "calories": 750, "protein": 73, "carbs": 71, "fat": 18 },
+          "prep_time_minutes": 30,
+          "notes": "אופים 180 מעלות 20 דק'"
+        }
+      },
+      "daily_totals": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 }
+    },
+    {
+      "date": "2026-04-24",
+      "day_name": "חמישי",
+      "is_prep_day": false,
+      "meals": {
+        "breakfast": {
+          "name": "שיבולת שועל עם חלבון ובננה",
+          "ingredients": [
+            { "item": "שיבולת שועל", "amount": "80g" },
+            { "item": "אבקת חלבון טבעונית", "amount": "20g" },
+            { "item": "בננה", "amount": "1 קטנה (90g)" },
+            { "item": "מים", "amount": "250ml" }
+          ],
+          "macros": { "calories": 450, "protein": 38, "carbs": 62, "fat": 7 },
+          "prep_time_minutes": 5,
+          "notes": ""
+        },
+        "lunch": {
+          "name": "חזה עוף עם אורז",
+          "ingredients": [
+            { "item": "חזה עוף", "amount": "180g" },
+            { "item": "אורז לבן מבושל", "amount": "150g" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 550, "protein": 55, "carbs": 55, "fat": 12 },
+          "prep_time_minutes": 2,
+          "notes": "מוכן מהמיל פרפ — לחמם"
+        },
+        "snack": {
+          "name": "טונה עם עגבניה",
+          "ingredients": [
+            { "item": "טונה בקופסא במים", "amount": "80g" },
+            { "item": "עגבניה", "amount": "1 גדולה" }
+          ],
+          "macros": { "calories": 180, "protein": 20, "carbs": 8, "fat": 5 },
+          "prep_time_minutes": 2,
+          "notes": ""
+        },
+        "dinner": {
+          "name": "ביצים עם בטטה ואבוקדו",
+          "ingredients": [
+            { "item": "ביצים", "amount": "4 ביצים" },
+            { "item": "בטטה מבושלת", "amount": "180g" },
+            { "item": "אבוקדו", "amount": "חצי (70g)" }
+          ],
+          "macros": { "calories": 750, "protein": 80, "carbs": 68, "fat": 24 },
+          "prep_time_minutes": 15,
+          "notes": ""
+        }
+      },
+      "daily_totals": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 48 }
+    },
+    {
+      "date": "2026-04-25",
+      "day_name": "שישי",
+      "is_prep_day": false,
+      "meals": {
+        "breakfast": {
+          "name": "שייק חלבון עם שיבולת שועל ובננה",
+          "ingredients": [
+            { "item": "אבקת חלבון טבעונית", "amount": "30g" },
+            { "item": "שיבולת שועל", "amount": "50g" },
+            { "item": "בננה", "amount": "1 בינונית (120g)" },
+            { "item": "מים", "amount": "300ml" }
+          ],
+          "macros": { "calories": 450, "protein": 45, "carbs": 55, "fat": 8 },
+          "prep_time_minutes": 5,
+          "notes": ""
+        },
+        "lunch": {
+          "name": "בשר טחון עם פסטה",
+          "ingredients": [
+            { "item": "בשר טחון 5% שומן", "amount": "130g" },
+            { "item": "פסטה מבושלת", "amount": "120g" },
+            { "item": "רוטב עגבניות", "amount": "80g" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 550, "protein": 52, "carbs": 55, "fat": 13 },
+          "prep_time_minutes": 2,
+          "notes": "מוכן מהמיל פרפ — לחמם"
+        },
+        "snack": {
+          "name": "קוטג' עם תמרים",
+          "ingredients": [
+            { "item": "קוטג' 5%", "amount": "200g" },
+            { "item": "תמרים", "amount": "2 יחידות (30g)" }
+          ],
+          "macros": { "calories": 180, "protein": 14, "carbs": 20, "fat": 5 },
+          "prep_time_minutes": 1,
+          "notes": ""
+        },
+        "dinner": {
+          "name": "ירך עוף עם אורז",
+          "ingredients": [
+            { "item": "ירך עוף ללא עור", "amount": "200g" },
+            { "item": "אורז לבן מבושל", "amount": "150g" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 750, "protein": 82, "carbs": 63, "fat": 16 },
+          "prep_time_minutes": 2,
+          "notes": "מוכן מהמיל פרפ — לחמם"
+        }
+      },
+      "daily_totals": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 42 }
+    },
+    {
+      "date": "2026-04-26",
+      "day_name": "שבת",
+      "is_prep_day": false,
+      "meals": {
+        "breakfast": {
+          "name": "שיבולת שועל עם חלבון ופירות",
+          "ingredients": [
+            { "item": "שיבולת שועל", "amount": "80g" },
+            { "item": "אבקת חלבון טבעונית", "amount": "20g" },
+            { "item": "תות שדה", "amount": "100g" },
+            { "item": "מים", "amount": "250ml" }
+          ],
+          "macros": { "calories": 450, "protein": 38, "carbs": 56, "fat": 6 },
+          "prep_time_minutes": 5,
+          "notes": ""
+        },
+        "lunch": {
+          "name": "טונה עם אורז ומלפפון",
+          "ingredients": [
+            { "item": "טונה בקופסא במים", "amount": "160g" },
+            { "item": "אורז לבן מבושל", "amount": "150g" },
+            { "item": "מלפפון", "amount": "1 גדול" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 550, "protein": 60, "carbs": 52, "fat": 11 },
+          "prep_time_minutes": 3,
+          "notes": ""
+        },
+        "snack": {
+          "name": "יוגורט חלבון עם בננה",
+          "ingredients": [
+            { "item": "יוגורט חלבון", "amount": "170g" },
+            { "item": "בננה", "amount": "1 קטנה (90g)" }
+          ],
+          "macros": { "calories": 180, "protein": 16, "carbs": 22, "fat": 3 },
+          "prep_time_minutes": 1,
+          "notes": ""
+        },
+        "dinner": {
+          "name": "חזה עוף עם פסטה ורוטב עגבניות",
+          "ingredients": [
+            { "item": "חזה עוף", "amount": "180g" },
+            { "item": "פסטה מבושלת", "amount": "130g" },
+            { "item": "רוטב עגבניות", "amount": "100g" },
+            { "item": "שמן זית", "amount": "5ml" }
+          ],
+          "macros": { "calories": 750, "protein": 79, "carbs": 63, "fat": 13 },
+          "prep_time_minutes": 15,
+          "notes": ""
+        }
+      },
+      "daily_totals": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 33 }
+    }
+  ],
+  "weekly_totals": { "calories": 13510, "protein": 1351, "carbs": 1351, "fat": 301 },
+  "generated_at": "2026-04-17T07:00:00Z",
+  "generated_by": "weekly-planner-routine"
+}
