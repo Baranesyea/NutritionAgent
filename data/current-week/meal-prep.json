@@ -1,17 +1,17 @@
 {
-  "week_start": "2026-04-13",
-  "week_end": "2026-04-19",
+  "week_start": "2026-04-12",
+  "week_end": "2026-04-18",
   "sessions": [
     {
       "session_number": 1,
-      "date": "2026-04-13",
+      "date": "2026-04-12",
       "day_name": "ראשון",
-      "covers_days": ["2026-04-13", "2026-04-14", "2026-04-15"],
+      "covers_days": ["2026-04-12", "2026-04-13", "2026-04-14"],
       "estimated_total_minutes": 60,
       "calendar_event": {
         "title": "Meal Prep — סשן 1",
-        "start": "2026-04-13T17:00:00",
-        "end": "2026-04-13T18:00:00"
+        "start": "2026-04-12T17:00:00",
+        "end": "2026-04-12T18:00:00"
       },
       "tasks": [
         {
@@ -71,14 +71,14 @@
     },
     {
       "session_number": 2,
-      "date": "2026-04-16",
+      "date": "2026-04-15",
       "day_name": "רביעי",
-      "covers_days": ["2026-04-16", "2026-04-17", "2026-04-18", "2026-04-19"],
+      "covers_days": ["2026-04-15", "2026-04-16", "2026-04-17", "2026-04-18"],
       "estimated_total_minutes": 55,
       "calendar_event": {
         "title": "Meal Prep — סשן 2",
-        "start": "2026-04-16T17:00:00",
-        "end": "2026-04-16T17:55:00"
+        "start": "2026-04-15T17:00:00",
+        "end": "2026-04-15T17:55:00"
       },
       "tasks": [
         {
@@ -137,6 +137,6 @@
       ]
     }
   ],
-  "generated_at": "2026-04-15T12:00:00Z",
+  "generated_at": "2026-04-14T12:00:00Z",
   "generated_by": "weekly-planner-routine"
 }
