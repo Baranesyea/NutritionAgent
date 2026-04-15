@@ -97,6 +97,24 @@
 
 ---
 
+## כלל Git — חשוב מאוד
+
+**כל push חייב לללכת ישירות ל-`main`.**
+
+לפני כל push, ודא:
+```bash
+git checkout main
+git pull origin main
+# בצע שינויים
+git add .
+git commit -m "..."
+git push origin main
+```
+
+אל תיצור branch חדש. אל תפתח PR. דחוף ישירות ל-`main` — זה הריפו הפרטי של ערן.
+
+---
+
 ## מבנה הריפו
 
 ```
