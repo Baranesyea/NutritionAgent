@@ -6,15 +6,6 @@
       "type": "system",
       "source": "weekly-planner-routine",
       "message": "תפריט שבועי נוצר לשבוע 20-26 באפריל. רשימת קניות וסשני מיל פרפ נוצרו ונשלחו במייל."
-    },
-    {
-      "timestamp": "2026-04-15T07:03:01.117Z",
-      "type": "deviation",
-      "source": "dashboard",
-      "processed": false,
-      "message": "ערן דיווח: גלידה",
-      "date": "2026-04-15",
-      "estimated_calories": 500
     }
   ]
 }
