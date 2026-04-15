@@ -80,6 +80,57 @@
     </div>
   </section>
 
+  <!-- Floating Report Button -->
+  <button class="fab" onclick="openReportModal()" title="דווח סטייה">✏️</button>
+  <button class="fab-settings" onclick="openTokenModal()" title="הגדרות">⚙️</button>
+
+  <!-- Report Modal -->
+  <div id="report-modal" class="modal-overlay" onclick="if(event.target===this)closeReportModal()">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <span class="modal-title">דיווח לסוכן</span>
+        <button class="modal-close" onclick="closeReportModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="field-label">מה אכלת? (או מה קרה)</label>
+        <textarea id="report-text" class="field-textarea" placeholder="למשל: אכלתי המבורגר וגלידה בצהריים במקום הצהריים המתוכנן" rows="4"></textarea>
+        <label class="field-label" style="margin-top:12px;">הערכת קלוריות (אופציונלי)</label>
+        <input id="report-cal" class="field-input" type="number" placeholder="למשל: 900">
+        <p class="field-hint">הסוכן יראה את הדיווח ויתאים את התפריט לימים הבאים</p>
+        <p id="report-error" class="field-error"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" id="report-btn-submit" onclick="submitReport()">שלח לסוכן</button>
+        <button class="btn-ghost" onclick="closeReportModal()">ביטול</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Token Modal -->
+  <div id="token-modal" class="modal-overlay" onclick="if(event.target===this)closeTokenModal()">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <span class="modal-title">חיבור לגיטהאב</span>
+        <button class="modal-close" onclick="closeTokenModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="field-label">GitHub Personal Access Token</label>
+        <input id="token-input" class="field-input" type="password" placeholder="ghp_...">
+        <p class="field-hint">
+          ניתן ליצור ב-GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens.<br>
+          נדרשת הרשאה: <strong>Contents: Read and Write</strong> על הריפו <strong>nutritionagent</strong> בלבד.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" onclick="saveTokenAndContinue()">שמור</button>
+        <button class="btn-ghost" onclick="closeTokenModal()">ביטול</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
   <script src="app.js"></script>
 </body>
 </html>
