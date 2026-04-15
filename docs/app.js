@@ -1,6 +1,10 @@
 /* === Nutrition Agent Dashboard === */
 
 const REPO_RAW = 'https://raw.githubusercontent.com/baranesyea/nutritionagent/main';
+const REPO_API = 'https://api.github.com/repos/baranesyea/nutritionagent';
+const REPO_OWNER = 'baranesyea';
+const REPO_NAME = 'nutritionagent';
+const PAT_KEY = 'nutrition-gh-token';
 
 const MEAL_LABELS = {
   breakfast: 'בוקר',
@@ -494,8 +498,150 @@ async function init() {
 
 document.addEventListener('DOMContentLoaded', init);
 
+// ── GitHub API — Write ────────────────────────────────────────────
+
+function getToken() { return localStorage.getItem(PAT_KEY) || ''; }
+function saveToken(t) { localStorage.setItem(PAT_KEY, t.trim()); }
+
+async function githubGetFile(path) {
+  const r = await fetch(`${REPO_API}/contents/${path}`, {
+    headers: { Authorization: `token ${getToken()}`, Accept: 'application/vnd.github.v3+json' }
+  });
+  if (!r.ok) throw new Error(`GitHub GET failed: ${r.status}`);
+  return r.json(); // { content (base64), sha }
+}
+
+async function githubPutFile(path, contentObj, sha, message) {
+  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(contentObj, null, 2))));
+  const r = await fetch(`${REPO_API}/contents/${path}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `token ${getToken()}`,
+      Accept: 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ message, content: encoded, sha })
+  });
+  if (!r.ok) {
+    const err = await r.json().catch(() => ({}));
+    throw new Error(err.message || `GitHub PUT failed: ${r.status}`);
+  }
+  return r.json();
+}
+
+async function appendToLog(entry) {
+  const file = await githubGetFile('data/current-week/log.json');
+  const current = JSON.parse(decodeURIComponent(escape(atob(file.content.replace(/\n/g, '')))));
+  current.entries.push(entry);
+  await githubPutFile(
+    'data/current-week/log.json',
+    current,
+    file.sha,
+    `📝 User note: ${entry.date}`
+  );
+}
+
+// ── Token Modal ───────────────────────────────────────────────────
+
+function openTokenModal(afterSave) {
+  const existing = getToken();
+  const modal = document.getElementById('token-modal');
+  document.getElementById('token-input').value = existing;
+  modal.classList.add('open');
+  window._afterTokenSave = afterSave || null;
+}
+
+function closeTokenModal() {
+  document.getElementById('token-modal').classList.remove('open');
+}
+
+function saveTokenAndContinue() {
+  const val = document.getElementById('token-input').value.trim();
+  if (!val) { alert('נא להזין מפתח'); return; }
+  saveToken(val);
+  closeTokenModal();
+  const cb = window._afterTokenSave;
+  if (cb) cb();
+}
+
+// ── Report Modal ──────────────────────────────────────────────────
+
+function openReportModal() {
+  if (!getToken()) {
+    openTokenModal(() => openReportModal());
+    return;
+  }
+  document.getElementById('report-text').value = '';
+  document.getElementById('report-cal').value = '';
+  document.getElementById('report-error').textContent = '';
+  document.getElementById('report-btn-submit').disabled = false;
+  document.getElementById('report-btn-submit').textContent = 'שלח לסוכן';
+  document.getElementById('report-modal').classList.add('open');
+  document.getElementById('report-text').focus();
+}
+
+function closeReportModal() {
+  document.getElementById('report-modal').classList.remove('open');
+}
+
+async function submitReport() {
+  const text = document.getElementById('report-text').value.trim();
+  const cal = parseInt(document.getElementById('report-cal').value) || null;
+  const errEl = document.getElementById('report-error');
+  const btn = document.getElementById('report-btn-submit');
+
+  if (!text) { errEl.textContent = 'נא לכתוב מה אכלת'; return; }
+
+  btn.disabled = true;
+  btn.textContent = 'שולח...';
+  errEl.textContent = '';
+
+  const now = new Date();
+  const entry = {
+    timestamp: now.toISOString(),
+    type: 'deviation',
+    source: 'dashboard',
+    processed: false,
+    message: `ערן דיווח: ${text}`,
+    date: now.toLocaleDateString('sv-SE'),
+    ...(cal ? { estimated_calories: cal } : {})
+  };
+
+  try {
+    await appendToLog(entry);
+    // Refresh log in state
+    state.log = await fetchJSON('data/current-week/log.json');
+    closeReportModal();
+    // Show confirmation
+    showToast('הדיווח נשמר — הסוכן יתחשב בזה');
+    // Re-render log if active
+    if (state.activeSection === 'log') renderLog();
+  } catch (e) {
+    errEl.textContent = e.message.includes('401') || e.message.includes('403')
+      ? 'מפתח שגוי — לחץ על ⚙️ לעדכון'
+      : `שגיאה: ${e.message}`;
+    btn.disabled = false;
+    btn.textContent = 'שלח לסוכן';
+  }
+}
+
+// ── Toast ─────────────────────────────────────────────────────────
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
 // Expose to global for onclick handlers
 window.selectDay = selectDay;
 window.toggleItem = toggleItem;
 window.clearChecked = clearChecked;
 window.showSection = showSection;
+window.openReportModal = openReportModal;
+window.closeReportModal = closeReportModal;
+window.submitReport = submitReport;
+window.openTokenModal = openTokenModal;
+window.closeTokenModal = closeTokenModal;
+window.saveTokenAndContinue = saveTokenAndContinue;
