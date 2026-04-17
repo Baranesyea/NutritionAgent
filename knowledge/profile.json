@@ -30,10 +30,10 @@
     }
   },
   "coffee": {
-    "cups_per_day": 2,
+    "cups_per_day": 3,
     "milk": "חלב סויה וניל",
     "milk_amount": "שליש כוס לכל כוס",
-    "estimated_daily_calories": 70
+    "estimated_daily_calories": 105
   },
   "preferences": {
     "max_prep_time_minutes": 15,

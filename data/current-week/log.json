@@ -11,17 +11,47 @@
       "timestamp": "2026-04-16T18:36:38.810Z",
       "type": "deviation",
       "source": "dashboard",
-      "processed": false,
+      "processed": true,
+      "processed_at": "2026-04-17T08:00:00Z",
       "message": "ערן דיווח: בצהריים אכלתי 3 פולקע\nובערב אכלתי סטייק פרגית כי לא היה משהו אחר",
-      "date": "2026-04-16"
+      "date": "2026-04-16",
+      "estimated_actual": {
+        "lunch": { "description": "3 פולקע (בורקס)", "calories": 900, "protein": 24, "carbs": 75, "fat": 45 },
+        "dinner": { "description": "סטייק פרגית ~250g", "calories": 450, "protein": 50, "carbs": 0, "fat": 25 }
+      },
+      "day_total_actual": { "calories": 2015, "protein": 139, "carbs": 134, "fat": 86 },
+      "deviation_from_plan": { "calories": 85, "protein": -54, "carbs": -59, "fat": 43 }
     },
     {
       "timestamp": "2026-04-17T04:36:17.366Z",
       "type": "deviation",
       "source": "dashboard",
-      "processed": false,
+      "processed": true,
+      "processed_at": "2026-04-17T08:00:00Z",
       "message": "ערן דיווח: אתמול שתיתי 3 קפה. אני חושב שצריך לשנות את הסטנדרט שלי ל 3 קפה ביום.",
-      "date": "2026-04-17"
+      "date": "2026-04-17",
+      "notes": "הקפה השלישי ב-16/04 נוסף לאומדן היומי (+35 קל'). בקשה לעדכון סטנדרט קפה ל-3 כוסות ביום — עודכן בפרופיל."
+    },
+    {
+      "timestamp": "2026-04-17T08:00:00Z",
+      "type": "correction",
+      "source": "daily-checkin-routine",
+      "message": "תיקון יומי 17/04: סטייה קטנה (+85 קל') ב-16/04. ערן אכל 3 פולקע בצהריים (במקום ירך עוף+אורז+עדשים) וסטייק פרגית בערב (במקום המבורגר+תפו\"א). בנוסף שתה 3 קפה (+35 קל'). חלבון ירד ל-139g ביום 16/04 — מתחת למינימום 170g. השומן עלה משמעותית (86g vs 43g מתוכנן). תיקונים: (1) ארוחת ערב 17/04 — הופחתו קינואה (180g→140g) ושמן זית הוסר, חיסכון ~95 קל'. (2) ארוחת ערב 18/04 — הופחתו פסטה (140g→125g) ושמן זית (5ml→3ml), חיסכון ~37 קל'. (3) פרופיל עודכן ל-3 קפה ביום (105 קל'). סטנדרט הקפה החדש ייכנס לתוקף מלא בתכנון השבוע הבא.",
+      "corrections_applied": [
+        {
+          "target_date": "2026-04-17",
+          "meal": "dinner",
+          "change": "קינואה 180g→140g, שמן זית הוסר",
+          "calories_saved": 95
+        },
+        {
+          "target_date": "2026-04-18",
+          "meal": "dinner",
+          "change": "פסטה 140g→125g, שמן זית 5ml→3ml",
+          "calories_saved": 37
+        }
+      ],
+      "profile_update": "קפה: 2→3 כוסות ביום, 70→105 קל'"
     }
   ]
 }
