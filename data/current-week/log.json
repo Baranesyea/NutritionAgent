@@ -52,6 +52,23 @@
         }
       ],
       "profile_update": "קפה: 2→3 כוסות ביום, 70→105 קל'"
+    },
+    {
+      "timestamp": "2026-04-17T18:00:00Z",
+      "type": "weekly_summary",
+      "week": "2026-04-12",
+      "status": "on_track",
+      "projected_weekly_calories": 13463,
+      "weekly_target": 13510,
+      "avg_daily_calories": 1947,
+      "avg_daily_protein": 182,
+      "deviations_count": 2,
+      "corrections_count": 1,
+      "protein_below_170": true,
+      "protein_below_170_days": ["2026-04-16"],
+      "what_worked": "4 מתוך 5 ימים שהושלמו היו מדויקים על היעד, גיוון מצוין בארוחות בוקר ובמקורות חלבון",
+      "what_didnt": "ביום חמישי ערן אכל 3 פולקע בצהריים — שומן כפול מהמתוכנן וחלבון ירד ל-139g, הרבה מתחת למינימום 170g",
+      "recommendation_for_next_week": "להכין מנות חלבון גבוהות כגיבוי במקרר ליום חמישי ולוודא שהמיל פרפ של רביעי מספיק ל-3 ימים מלאים"
     }
   ]
 }
