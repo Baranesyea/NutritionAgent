@@ -1,0 +1,73 @@
+{
+  "week_start": "2026-04-12",
+  "week_end": "2026-04-18",
+  "days": [
+    {
+      "date": "2026-04-12",
+      "day_name": "ראשון",
+      "planned": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "actual": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+      "status": "on_track"
+    },
+    {
+      "date": "2026-04-13",
+      "day_name": "שני",
+      "planned": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "actual": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+      "status": "on_track"
+    },
+    {
+      "date": "2026-04-14",
+      "day_name": "שלישי",
+      "planned": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "actual": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+      "status": "on_track"
+    },
+    {
+      "date": "2026-04-15",
+      "day_name": "רביעי",
+      "planned": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "actual": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+      "status": "on_track"
+    },
+    {
+      "date": "2026-04-16",
+      "day_name": "חמישי",
+      "planned": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "actual": { "calories": 2015, "protein": 139, "carbs": 134, "fat": 86 },
+      "deviation": { "calories": 85, "protein": -54, "carbs": -59, "fat": 43 },
+      "status": "over"
+    },
+    {
+      "date": "2026-04-17",
+      "day_name": "שישי",
+      "planned": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "actual": { "calories": 2425, "protein": 141, "carbs": 258, "fat": 78 },
+      "deviation": { "calories": 495, "protein": -52, "carbs": 65, "fat": 35 },
+      "status": "over",
+      "adjusted_target": { "calories": 1835, "protein": 193, "carbs": 187, "fat": 36 },
+      "adjustment_reason": "תיקון סטיית 16/04 (+85 קל') + התאמה לקפה שלישי"
+    },
+    {
+      "date": "2026-04-18",
+      "day_name": "שבת",
+      "planned": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
+      "actual": { "calories": 1630, "protein": 112, "carbs": 143, "fat": 61 },
+      "deviation": { "calories": -300, "protein": -81, "carbs": -50, "fat": 18 },
+      "status": "under",
+      "adjusted_target": { "calories": 1893, "protein": 194, "carbs": 184, "fat": 43 },
+      "adjustment_reason": "התאמה לקפה שלישי"
+    }
+  ],
+  "weekly_planned": { "calories": 13510, "protein": 1351, "carbs": 1351, "fat": 301 },
+  "weekly_actual": { "calories": 13790, "protein": 1164, "carbs": 1307, "fat": 397 },
+  "weekly_deviation": { "calories": 280, "protein": -187, "carbs": -44, "fat": 96 },
+  "weekly_remaining": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+  "days_remaining": 0,
+  "week_status": "completed",
+  "updated_at": "2026-04-19T08:00:00Z"
+}
