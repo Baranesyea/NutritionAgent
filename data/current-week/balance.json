@@ -6,17 +6,17 @@
       "date": "2026-04-19",
       "day_name": "ראשון",
       "planned": { "calories": 1925, "protein": 195, "carbs": 193, "fat": 40 },
-      "actual": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+      "actual": { "calories": 1925, "protein": 195, "carbs": 193, "fat": 40 },
       "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
-      "status": "pending"
+      "status": "on_track"
     },
     {
       "date": "2026-04-20",
       "day_name": "שני",
       "planned": { "calories": 1925, "protein": 193, "carbs": 193, "fat": 41 },
-      "actual": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
-      "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
-      "status": "pending"
+      "actual": { "calories": 1865, "protein": 190, "carbs": 164, "fat": 47 },
+      "deviation": { "calories": -60, "protein": -3, "carbs": -29, "fat": 6 },
+      "status": "on_track"
     },
     {
       "date": "2026-04-21",
@@ -45,7 +45,7 @@
     {
       "date": "2026-04-24",
       "day_name": "שישי",
-      "planned": { "calories": 1925, "protein": 193, "carbs": 186, "fat": 42 },
+      "planned": { "calories": 1930, "protein": 197, "carbs": 187, "fat": 41 },
       "actual": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
       "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
       "status": "pending"
@@ -59,10 +59,10 @@
       "status": "pending"
     }
   ],
-  "weekly_planned": { "calories": 13480, "protein": 1345, "carbs": 1352, "fat": 302 },
-  "weekly_actual": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
-  "weekly_remaining": { "calories": 13480, "protein": 1345, "carbs": 1352, "fat": 302 },
-  "days_remaining": 7,
-  "week_status": "pending",
-  "updated_at": "2026-04-19T07:00:00Z"
+  "weekly_planned": { "calories": 13485, "protein": 1349, "carbs": 1353, "fat": 301 },
+  "weekly_actual": { "calories": 3790, "protein": 385, "carbs": 357, "fat": 87 },
+  "weekly_remaining": { "calories": 9695, "protein": 964, "carbs": 996, "fat": 214 },
+  "days_remaining": 5,
+  "week_status": "in_progress",
+  "updated_at": "2026-04-21T08:00:00Z"
 }
