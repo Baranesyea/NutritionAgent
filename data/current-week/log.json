@@ -85,9 +85,47 @@
       "timestamp": "2026-04-21T05:52:39.393Z",
       "type": "deviation",
       "source": "dashboard",
-      "processed": false,
+      "processed": true,
+      "processed_at": "2026-04-22T08:00:00Z",
       "message": "ערן דיווח: ‏הבוקר הוספתי כף חמאת בוטנים לקוואקר",
-      "date": "2026-04-21"
+      "date": "2026-04-21",
+      "estimated_actual": {
+        "calories": 514,
+        "protein": 46,
+        "carbs": 58,
+        "fat": 15
+      },
+      "planned_meal": "breakfast",
+      "notes": "כף חמאת בוטנים (~16g) נוספה לשייק חלבון+שיבולת שועל. תוספת: +94 קל', +4g P, +3g C, +8g F."
+    },
+    {
+      "timestamp": "2026-04-22T08:00:00Z",
+      "type": "correction",
+      "source": "daily-checkin-routine",
+      "message": "עיבוד דיווח מ-21/4: תוספת כף חמאת בוטנים לשייק בוקר. תוספת: +94 קל' (סטייה קטנה). תיקון: הפחתה ברביעי 22/4 — אורז צהריים 140g→110g, קינואה ערב 160g→140g, שמן זית ערב 5ml→2ml. סה\"כ הפחתה: ~90 קל'. חלבון נשמר 188g (מעל 170g מינימום).",
+      "date": "2026-04-22",
+      "tuesday_actual": {
+        "calories": 2009,
+        "protein": 194,
+        "carbs": 206,
+        "fat": 49
+      },
+      "tuesday_planned": {
+        "calories": 1915,
+        "protein": 190,
+        "carbs": 203,
+        "fat": 41
+      },
+      "tuesday_deviation": {
+        "calories": 94,
+        "protein": 4,
+        "carbs": 3,
+        "fat": 8
+      },
+      "changes_made": [
+        "עודכן balance.json ליום שלישי 21/4",
+        "תפריט רביעי 22/4: אורז צהריים 140g→110g, קינואה ערב 160g→140g, שמן זית ערב 5ml→2ml (-90 קל')"
+      ]
     }
   ]
 }

@@ -199,12 +199,12 @@
           "name": "בשר טחון רזה עם אורז ירקות",
           "ingredients": [
             { "item": "בשר טחון 5% שומן", "amount": "150g" },
-            { "item": "אורז בסמטי מבושל", "amount": "140g" },
+            { "item": "אורז בסמטי מבושל", "amount": "110g" },
             { "item": "ירקות מוקפצים (פלפל+בצל+קישוא)", "amount": "200g" },
             { "item": "רוטב עגבניות", "amount": "60g" },
             { "item": "שמן זית", "amount": "3ml" }
           ],
-          "macros": { "calories": 530, "protein": 52, "carbs": 58, "fat": 13 },
+          "macros": { "calories": 491, "protein": 51, "carbs": 50, "fat": 13 },
           "prep_time_minutes": 15,
           "notes": "לטגן בשר + ירקות, להוסיף רוטב"
         },
@@ -221,17 +221,17 @@
           "name": "חזה עוף עם קינואה וירקות צלויים",
           "ingredients": [
             { "item": "חזה עוף", "amount": "200g" },
-            { "item": "קינואה מבושלת", "amount": "160g" },
+            { "item": "קינואה מבושלת", "amount": "140g" },
             { "item": "ירקות צלויים (קישואים+פלפל+בצל)", "amount": "200g" },
-            { "item": "שמן זית", "amount": "5ml" },
+            { "item": "שמן זית", "amount": "2ml" },
             { "item": "שום + כמון + לימון", "amount": "לפי טעם" }
           ],
-          "macros": { "calories": 695, "protein": 72, "carbs": 60, "fat": 16 },
+          "macros": { "calories": 644, "protein": 71, "carbs": 56, "fat": 13 },
           "prep_time_minutes": 20,
           "notes": "יום מיל פרפ — לאפות 200 מעלות 15 דק'"
         }
       },
-      "daily_totals": { "calories": 1915, "protein": 190, "carbs": 185, "fat": 46 }
+      "daily_totals": { "calories": 1825, "protein": 188, "carbs": 173, "fat": 43 }
     },
     {
       "date": "2026-04-23",
@@ -407,7 +407,7 @@
       "daily_totals": { "calories": 1915, "protein": 191, "carbs": 189, "fat": 46 }
     }
   ],
-  "weekly_totals": { "calories": 13485, "protein": 1349, "carbs": 1353, "fat": 301 },
+  "weekly_totals": { "calories": 13395, "protein": 1347, "carbs": 1341, "fat": 298 },
   "variety_notes": [
     "ארוחות בוקר שונות 7 ימים: שיבולת ליל, חביתת חלבונים, שייק, פנקייק, יוגורט+שיבולת, ביצים מקושקשות, שקשוקה",
     "חלבונים מגוונים: חזה עוף (עיקרי), דג לבן, טונה, בשר טחון 5%, ביצים",
