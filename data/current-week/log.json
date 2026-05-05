@@ -11,9 +11,21 @@
       "timestamp": "2026-05-04T08:21:26.735Z",
       "type": "deviation",
       "source": "dashboard",
-      "processed": false,
+      "processed": true,
+      "processed_at": "2026-05-05T08:00:00Z",
       "message": "ערן דיווח: ישבתי לאכול גלידה עם הילדים",
-      "date": "2026-05-04"
+      "date": "2026-05-04",
+      "estimated_actual": { "calories": 320, "protein": 5, "carbs": 35, "fat": 18 }
+    },
+    {
+      "timestamp": "2026-05-05T08:00:00Z",
+      "type": "correction",
+      "source": "daily-checkin-routine",
+      "message": "תיקון לסטיית גלידה (4/5, +320 קל'). סטייה בינונית — פוזרה על יומיים: שלישי 5/5 ורביעי 6/5. קיצוץ 160 קל' בכל יום, בעיקר מפחמימות ושומן. שלישי: קוסקוס 160→120g, תפו\"א 260→200g, הסרת שמן זית מארוחת ערב. רביעי: פסטה 140→100g, קינואה 150→110g, הסרת שמן זית מארוחת ערב. חלבון נשמר מעל 170g/יום בשני הימים.",
+      "deviation_date": "2026-05-04",
+      "deviation_calories": 320,
+      "correction_days": ["2026-05-05", "2026-05-06"],
+      "correction_per_day": 160
     }
   ]
 }
