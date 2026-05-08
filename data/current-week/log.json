@@ -26,6 +26,23 @@
       "deviation_calories": 320,
       "correction_days": ["2026-05-05", "2026-05-06"],
       "correction_per_day": 160
+    },
+    {
+      "timestamp": "2026-05-08T18:00:00Z",
+      "type": "weekly_summary",
+      "status": "on_track",
+      "weekly_total_calories": 13547,
+      "weekly_target_calories": 13510,
+      "weekly_deviation": 37,
+      "avg_daily_calories": 1935,
+      "avg_daily_protein": 193,
+      "min_daily_protein": 190,
+      "deviations_count": 1,
+      "corrections_count": 1,
+      "protein_below_170": false,
+      "what_worked": "מיל פרפ ראשון+רביעי מנע סטיות מרביעי עד שבת, ארוחות בוקר פשוטות עבדו — רק סטייה אחת קטנה בשבוע שלם",
+      "what_didnt": "סטייה אחת מגלידה עם ילדים ביום שני — טופלה מהר, אבל אירועים חברתיים עדיין נקודת תורפה",
+      "recommendation_for_next_week": "להמשיך עם אותו מבנה מנצח (מיל פרפ + בוקר פשוט). לתכנן מראש נשנוש חלבוני קל לימים עם אירועים חברתיים כדי לצמצם סטיות"
     }
   ]
 }

@@ -21,34 +21,34 @@
     {
       "date": "2026-05-05",
       "day_name": "שלישי",
-      "planned": { "calories": 1770, "protein": 190, "carbs": 165, "fat": 35 },
-      "actual": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+      "planned": { "calories": 1775, "protein": 190, "carbs": 169, "fat": 35 },
+      "actual": { "calories": 1775, "protein": 190, "carbs": 169, "fat": 35 },
       "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
-      "status": "correction_day"
+      "status": "on_track"
     },
     {
       "date": "2026-05-06",
       "day_name": "רביעי",
-      "planned": { "calories": 1770, "protein": 190, "carbs": 168, "fat": 37 },
-      "actual": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+      "planned": { "calories": 1802, "protein": 192, "carbs": 172, "fat": 39 },
+      "actual": { "calories": 1802, "protein": 192, "carbs": 172, "fat": 39 },
       "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
-      "status": "correction_day"
+      "status": "on_track"
     },
     {
       "date": "2026-05-07",
       "day_name": "חמישי",
       "planned": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
-      "actual": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+      "actual": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 43 },
       "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
-      "status": "pending"
+      "status": "on_track"
     },
     {
       "date": "2026-05-08",
       "day_name": "שישי",
       "planned": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 40 },
-      "actual": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
+      "actual": { "calories": 1930, "protein": 193, "carbs": 193, "fat": 40 },
       "deviation": { "calories": 0, "protein": 0, "carbs": 0, "fat": 0 },
-      "status": "pending"
+      "status": "on_track"
     },
     {
       "date": "2026-05-09",
@@ -59,12 +59,12 @@
       "status": "pending"
     }
   ],
-  "weekly_planned": { "calories": 13510, "protein": 1351, "carbs": 1351, "fat": 301 },
-  "weekly_actual": { "calories": 4180, "protein": 391, "carbs": 421, "fat": 104 },
+  "weekly_planned": { "calories": 13227, "protein": 1347, "carbs": 1306, "fat": 290 },
+  "weekly_actual": { "calories": 11617, "protein": 1159, "carbs": 1148, "fat": 261 },
   "weekly_target": { "calories": 13510, "protein": 1351, "carbs": 1351, "fat": 301 },
-  "weekly_deviation_from_target": { "calories": 320, "protein": 5, "carbs": 35, "fat": 18 },
-  "weekly_remaining": { "calories": 9330, "protein": 960, "carbs": 930, "fat": 197 },
-  "days_remaining": 5,
+  "weekly_deviation_from_target": { "calories": 37, "protein": 1, "carbs": -10, "fat": -1 },
+  "weekly_remaining": { "calories": 1893, "protein": 192, "carbs": 203, "fat": 40 },
+  "days_remaining": 1,
   "week_status": "active",
-  "updated_at": "2026-05-05T08:00:00Z"
+  "updated_at": "2026-05-08T18:00:00Z"
 }
